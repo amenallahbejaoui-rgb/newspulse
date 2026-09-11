@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+/* everything else — :root, @theme inline, body, etc. — goes after this */
+:root {
+  /* ink, paper and brass lamp-light */
+  --bg: #0d1310;
+  --bg-elevated: #161e1a;
+  --bg-elevated-2: #1e2822;
+
+  --ink: #e7e1cf;
+  --ink-dim: #9ba394;
+  --ink-faint: #6b7268;
+
+  --rule: rgba(196, 178, 122, 0.14);
+  --rule-strong: rgba(196, 178, 122, 0.3);
+
+  --brass: #c4a265;
+  --brass-dim: #8c7548;
+
+  --botanical: #7fa07a;
+  --botanical-dim: #4a5f47;
+
+  --specimen: #a3564a;
+
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--bg-elevated);
+  --color-surface-2: var(--bg-elevated-2);
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-brass: var(--brass);
+  --color-brass-dim: var(--brass-dim);
+  --color-botanical: var(--botanical);
+  --color-botanical-dim: var(--botanical-dim);
+  --color-specimen: var(--specimen);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background:
+    radial-gradient(ellipse 1200px 800px at 12% -10%, rgba(196, 178, 122, 0.06), transparent 60%),
+    radial-gradient(ellipse 900px 700px at 100% 0%, rgba(127, 160, 122, 0.05), transparent 55%),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--brass-dim);
+  color: var(--bg);
+}
+
+/* narrow brass scrollbar — reading-room, not browser default */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--rule-strong); }
+::-webkit-scrollbar-thumb:hover { background: var(--brass-dim); }
+
+:focus-visible {
+  outline: 1.5px solid var(--brass);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
